@@ -41,8 +41,19 @@ import {
   Eye,
   FileText,
   ShieldAlert,
-  ExternalLink
+  ExternalLink,
+  AlertCircle,
+  Info
 } from 'lucide-react';
+
+// --- WAITLIST INTEGRATION ---
+/**
+ * TO ACTIVATE REAL EMAILS:
+ * 1. Go to https://formspree.io/ and create a free account.
+ * 2. Create a form and set recipient to: toluwanimiajiboso03@gmail.com
+ * 3. Copy the unique "Endpoint URL" and paste it below.
+ */
+const WAITLIST_ENDPOINT = "https://formspree.io/f/your_unique_id"; 
 
 // --- Types ---
 type Page = 'home' | 'about' | 'growth' | 'waitlist' | 'privacy';
@@ -526,7 +537,7 @@ const GrowthPage = () => {
             <a href="https://www.linkedin.com/in/ajiboso-toluwanimi-819834218/" target="_blank" rel="noopener noreferrer" className="p-6 md:p-8 glass rounded-2xl md:rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all group shadow-xl" title="Founder LinkedIn">
               <Linkedin className="text-blue-500 group-hover:scale-110 transition-transform" size={28} />
             </a>
-            <a href="https://linkedin.com/company/marvexco" target="_blank" rel="noopener noreferrer" className="p-6 md:p-8 glass rounded-2xl md:rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all group shadow-xl" title="Company LinkedIn">
+            <a href="https://linkedin.com/company/marvexco" target="_blank" rel="noopener noreferrer" className="p-6 md:p-8 glass rounded-2xl md:rounded-[2rem] border border-white/10 hover:border-blue-500/30 transition-all group shadow-xl" title="Company LinkedIn">
               <Building2 className="text-blue-500 group-hover:scale-110 transition-transform" size={28} />
             </a>
           </div>
@@ -538,12 +549,52 @@ const GrowthPage = () => {
 
 const WaitlistPage = () => {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  
+  // Checking if we are in simulation mode
+  const isSimulation = !WAITLIST_ENDPOINT || WAITLIST_ENDPOINT.includes('your_unique_id');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    setTimeout(() => setStatus('success'), 1500);
+
+    if (isSimulation) {
+      console.group('%c [SURGE PROTOCOL] Simulation Handshake ', 'background: #1d4ed8; color: #fff; font-weight: bold; padding: 4px;');
+      console.log('Action: Waitlist Registration');
+      console.log('Target Recipient: toluwanimiajiboso03@gmail.com');
+      console.log('User Email Captured:', email);
+      console.log('Timestamp:', new Date().toISOString());
+      console.log('Status: Success (Simulation)');
+      console.groupEnd();
+      
+      setTimeout(() => setStatus('success'), 1500);
+      return;
+    }
+
+    try {
+      const response = await fetch(WAITLIST_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ 
+          email: email,
+          _subject: "New Surge Waitlist Registration",
+          message: `A new enterprise user joined the Surge Waitlist: ${email}`
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        throw new Error('Protocol rejection.');
+      }
+    } catch (err) {
+      console.error('Waitlist Error:', err);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
@@ -555,34 +606,61 @@ const WaitlistPage = () => {
             <p className="text-zinc-400 text-lg md:text-2xl mb-12 md:mb-16 max-w-3xl mx-auto font-medium leading-relaxed">
               Register your interest for the initial private release. Early partners receive tiered routing discounts and priority API access.
             </p>
-            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 md:gap-6 max-w-2xl mx-auto p-2 glass rounded-2xl md:rounded-full border-white/10">
+            <form onSubmit={handleSubmit} className={`relative flex flex-col md:flex-row gap-4 md:gap-6 max-w-2xl mx-auto p-2 glass rounded-2xl md:rounded-full border-white/10 transition-all duration-500 ${status === 'error' ? 'border-red-500/30' : ''}`}>
               <input 
+                name="email"
                 type="email" 
                 required 
                 placeholder="founder@enterprise.africa" 
-                className="flex-grow bg-transparent py-5 md:py-6 px-8 md:px-10 focus:outline-none text-white font-medium text-lg placeholder:text-zinc-500"
+                className="flex-grow bg-transparent py-5 md:py-6 px-8 md:px-10 focus:outline-none text-white font-medium text-lg placeholder:text-zinc-500 disabled:opacity-50"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={status === 'loading'}
               />
               <button 
                 type="submit" 
                 disabled={status === 'loading'}
-                className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-black text-[10px] uppercase tracking-[0.4em] px-12 py-5 md:py-6 rounded-full transition-all active:scale-95 shadow-xl shadow-blue-600/30 whitespace-nowrap"
+                className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-black text-[10px] uppercase tracking-[0.4em] px-12 py-5 md:py-6 rounded-full transition-all active:scale-95 shadow-xl shadow-blue-600/30 whitespace-nowrap group"
               >
-                {status === 'loading' ? 'Verifying...' : 'Join Waitlist'}
+                {status === 'loading' ? 'Verifying Node...' : (
+                  <span className="flex items-center gap-2">
+                    Join Waitlist <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                )}
               </button>
             </form>
+            
+            {/* Verification Helper */}
+            {isSimulation && status !== 'loading' && (
+              <div className="mt-8 flex flex-col items-center gap-4 animate-in fade-in duration-1000">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400/80 text-[8px] font-black uppercase tracking-widest">
+                  <Info size={10} /> Simulation Active
+                </div>
+                <p className="text-zinc-600 text-[9px] font-medium max-w-sm uppercase tracking-wider">
+                  Open your browser console (F12) to verify data capture. Replace the <code className="text-blue-400">WAITLIST_ENDPOINT</code> in <code className="text-white">index.tsx</code> to receive real emails.
+                </p>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <p className="text-red-400 text-[10px] font-black uppercase tracking-widest mt-6 animate-pulse flex items-center justify-center gap-2">
+                <AlertCircle size={12} /> Connection Failed. Retrying...
+              </p>
+            )}
           </>
         ) : (
           <div className="animate-in zoom-in-95 duration-700">
-            <div className="w-20 h-20 md:w-32 md:h-32 bg-blue-500/10 text-blue-500 rounded-3xl md:rounded-[3rem] flex items-center justify-center mx-auto mb-10 border border-blue-500/20">
+            <div className="w-20 h-20 md:w-32 md:h-32 bg-blue-500/10 text-blue-500 rounded-3xl md:rounded-[3rem] flex items-center justify-center mx-auto mb-10 border border-blue-500/20 shadow-[0_0_50px_rgba(59,130,246,0.1)]">
               <CheckCircle className="w-10 h-10 md:w-14 md:h-14" strokeWidth={1.5} />
             </div>
             <h2 className="text-4xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tighter">Connection Secured</h2>
-            <p className="text-zinc-400 text-lg md:text-2xl mb-12 font-medium">
-              We've registered <span className="text-white font-bold">{email}</span>. A representative will contact you shortly.
+            <p className="text-zinc-400 text-lg md:text-2xl mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
+              We've registered <span className="text-white font-bold">{email}</span>. 
+              {isSimulation 
+                ? " (Simulation Successful: Check your browser console for log details)." 
+                : " A representative will contact you shortly at this address."}
             </p>
-            <button onClick={() => setStatus('idle')} className="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] underline underline-offset-8">Add another node</button>
+            <button onClick={() => { setEmail(''); setStatus('idle'); }} className="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] underline underline-offset-8 hover:text-blue-400 transition-colors">Add another node</button>
           </div>
         )}
       </div>
