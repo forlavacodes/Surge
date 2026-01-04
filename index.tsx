@@ -36,11 +36,15 @@ import {
   Network,
   Globe2,
   CreditCard,
-  Container
+  Container,
+  Lock,
+  Eye,
+  FileText,
+  ShieldAlert
 } from 'lucide-react';
 
 // --- Types ---
-type Page = 'home' | 'about' | 'growth' | 'waitlist';
+type Page = 'home' | 'about' | 'growth' | 'waitlist' | 'privacy';
 
 interface TeamMember {
   name: string;
@@ -223,6 +227,75 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
     </div>
   </section>
 );
+
+const PrivacyPage = () => {
+  return (
+    <section className="pt-32 md:pt-48 pb-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-4xl mb-24 md:mb-40">
+           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[9px] font-black uppercase tracking-[0.4em] mb-8">
+            Data Integrity
+          </div>
+          <h2 className="text-4xl md:text-8xl font-bold tracking-tighter mb-8 md:mb-12 leading-[1] md:leading-[0.9]">The Surge <br/> Data Protocol.</h2>
+          <p className="text-zinc-400 text-lg md:text-2xl font-medium leading-relaxed max-w-2xl">
+            In building the unified heartbeat of African trade, we prioritize the sanctity of enterprise data. Transparency is our baseline, security is our architecture.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 text-left border-t border-white/5 pt-24">
+          <div className="space-y-16">
+            <div className="group border-l border-white/5 pl-8 hover:border-blue-500/40 transition-all duration-500">
+              <div className="mb-6 text-zinc-700 group-hover:text-blue-500 transition-colors">
+                <ShieldCheck size={32} strokeWidth={1} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">I. Collection & Node Sync</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed mb-4 font-medium">
+                We collect essential telemetry, transaction markers, and logistics metadata required to route commerce across the Marvex network. This includes merchant identity, shipment origin/destination, and settlement tokens.
+              </p>
+              <ul className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 space-y-2">
+                <li>• Transaction Hashing</li>
+                <li>• Multi-node Routing Data</li>
+                <li>• Enterprise Verification Logs</li>
+              </ul>
+            </div>
+
+            <div className="group border-l border-white/5 pl-8 hover:border-blue-500/40 transition-all duration-500">
+              <div className="mb-6 text-zinc-700 group-hover:text-blue-500 transition-colors">
+                <RefreshCcw size={32} strokeWidth={1} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">II. Purposeful Processing</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed mb-4 font-medium">
+                Data processed by Surge is used exclusively to stabilize the heartbeat of your business. This encompasses pathfinding for logistics, risk assessment for payments, and automated inventory balancing.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-16">
+            <div className="group border-l border-white/5 pl-8 hover:border-blue-500/40 transition-all duration-500">
+              <div className="mb-6 text-zinc-700 group-hover:text-blue-500 transition-colors">
+                <Lock size={32} strokeWidth={1} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">III. Vault Architecture</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed font-medium">
+                We employ military-grade encryption for data-at-rest and TLS 1.3 for data-in-transit. Our infrastructure is compliant with regional African standards (NDPR) and international best practices (GDPR).
+              </p>
+            </div>
+
+            <div className="group border-l border-white/5 pl-8 hover:border-blue-500/40 transition-all duration-500">
+              <div className="mb-6 text-zinc-700 group-hover:text-blue-500 transition-colors">
+                <Eye size={32} strokeWidth={1} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">IV. Enterprise Rights</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed font-medium">
+                You retain absolute ownership of your trade data. At any point, enterprises can request data portability, audit logs, or complete erasure of their operational footprint on the Surge protocol.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const AboutPage = () => {
   const [vol, setVol] = useState(50000);
@@ -521,7 +594,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => {
             <div>
               <h4 className="text-blue-500 font-bold mb-6 md:mb-8 text-[10px] uppercase tracking-[0.4em]">Foundation</h4>
               <ul className="space-y-4 text-sm text-zinc-500 font-medium">
-                <li><button className="hover:text-blue-500 transition-colors">Privacy</button></li>
+                <li><button onClick={() => { setPage('privacy'); window.scrollTo(0, 0); }} className="hover:text-blue-500 transition-colors">Privacy</button></li>
                 <li><button onClick={handleContactClick} className="hover:text-blue-500 transition-colors">Contact</button></li>
                 <li><button className="hover:text-blue-500 transition-colors">Terms</button></li>
               </ul>
@@ -547,6 +620,7 @@ const App = () => {
       case 'about': return <AboutPage />;
       case 'growth': return <GrowthPage />;
       case 'waitlist': return <WaitlistPage />;
+      case 'privacy': return <PrivacyPage />;
       default: return <HomePage setPage={setPage} />;
     }
   };
