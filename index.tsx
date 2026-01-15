@@ -106,7 +106,7 @@ const Header = ({ currentPage, setPage }: { currentPage: Page, setPage: (p: Page
             <button 
               key={link.id} 
               onClick={() => handleNav(link.id)}
-              className={`relative transition-colors text-[9px] font-black uppercase tracking-[0.3em] group ${
+              className={`relative transition-colors text-[9px] font-semibold uppercase tracking-[0.3em] group ${
                 currentPage === link.id ? 'text-blue-400' : 'text-zinc-400 hover:text-white'
               }`}
             >
@@ -118,7 +118,7 @@ const Header = ({ currentPage, setPage }: { currentPage: Page, setPage: (p: Page
           ))}
           <button 
             onClick={() => handleNav('waitlist')}
-            className={`relative overflow-hidden group rounded-full text-[9px] font-black uppercase tracking-widest transition-all active:scale-95 ${
+            className={`relative overflow-hidden group rounded-full text-[9px] font-bold uppercase tracking-widest transition-all active:scale-95 ${
               currentPage === 'waitlist' 
               ? 'bg-blue-600 text-white px-8 py-3 shadow-lg shadow-blue-600/20' 
               : 'bg-white text-black px-8 py-3 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]'
@@ -181,7 +181,7 @@ const Header = ({ currentPage, setPage }: { currentPage: Page, setPage: (p: Page
         </div>
 
         <div className="mt-auto">
-          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-4">Unified African Commerce</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400 mb-4">Unified African Commerce</p>
           <div className="flex gap-6">
             <Linkedin size={20} className="text-zinc-400 hover:text-white transition-colors cursor-pointer" />
             <Mail size={20} className="text-zinc-400 hover:text-white transition-colors cursor-pointer" />
@@ -210,26 +210,26 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
     </div>
 
     <div className="relative z-10 flex flex-col items-center max-w-7xl mx-auto">
-      <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] mb-12 animate-in fade-in duration-700">
+      <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 animate-in fade-in duration-700">
         <Zap className="w-3.5 h-3.5" />
         <span className="hidden xs:inline">The New Standard of</span> African Enterprise
       </div>
       <h1 className="text-4xl sm:text-7xl md:text-9xl font-bold tracking-tighter leading-[0.95] md:leading-[0.9] mb-10 md:mb-12 max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
         The <span className="gradient-text">Unified Heartbeat</span> <br className="hidden md:block"/> of African Trade
       </h1>
-      <p className="text-zinc-400 text-base md:text-2xl max-w-2xl mx-auto font-medium leading-relaxed mb-12 md:mb-16 px-4 animate-in fade-in duration-1000 delay-200">
+      <p className="text-zinc-400 text-base md:text-2xl max-w-2xl mx-auto font-normal leading-relaxed mb-12 md:mb-16 px-4 animate-in fade-in duration-1000 delay-200">
         One singular protocol for payments, logistics, and multi-node commerce across the African continent.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-in fade-in duration-1000 delay-300 w-full sm:w-auto px-6">
         <button 
           onClick={() => setPage('waitlist')}
-          className="bg-blue-600 hover:bg-blue-500 text-white font-black text-xs uppercase tracking-[0.3em] px-12 py-5 sm:py-6 rounded-full transition-all active:scale-95 shadow-2xl shadow-blue-600/30 group flex items-center justify-center gap-3"
+          className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-[0.3em] px-12 py-5 sm:py-6 rounded-full transition-all active:scale-95 shadow-2xl shadow-blue-600/30 group flex items-center justify-center gap-3"
         >
           Get Access <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </button>
         <button 
           onClick={() => setPage('about')}
-          className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black text-xs uppercase tracking-[0.3em] px-12 py-5 sm:py-6 rounded-full transition-all active:scale-95"
+          className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold text-xs uppercase tracking-[0.3em] px-12 py-5 sm:py-6 rounded-full transition-all active:scale-95"
         >
           Learn More
         </button>
@@ -243,11 +243,11 @@ const PrivacyPage = () => {
     <section className="pt-32 md:pt-48 pb-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-4xl mb-24 md:mb-40">
-           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[9px] font-black uppercase tracking-[0.4em] mb-8">
+           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[9px] font-bold uppercase tracking-[0.4em] mb-8">
             Data Integrity
           </div>
           <h2 className="text-4xl md:text-8xl font-bold tracking-tighter mb-8 md:mb-12 leading-[1] md:leading-[0.9]">The Surge <br/> Data Protocol.</h2>
-          <p className="text-zinc-400 text-lg md:text-2xl font-medium leading-relaxed max-w-2xl">
+          <p className="text-zinc-400 text-lg md:text-2xl font-normal leading-relaxed max-w-2xl">
             In building the unified heartbeat of African trade, we prioritize the sanctity of enterprise data. Transparency is our baseline, security is our architecture.
           </p>
         </div>
@@ -259,10 +259,10 @@ const PrivacyPage = () => {
                 <ShieldCheck size={32} strokeWidth={1} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">I. Collection & Node Sync</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4 font-medium">
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4 font-normal">
                 We collect essential telemetry, transaction markers, and logistics metadata required to route commerce across the Marvex network. This includes merchant identity, shipment origin/destination, and settlement tokens.
               </p>
-              <ul className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 space-y-2">
+              <ul className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 space-y-2">
                 <li>• Transaction Hashing</li>
                 <li>• Multi-node Routing Data</li>
                 <li>• Enterprise Verification Logs</li>
@@ -274,7 +274,7 @@ const PrivacyPage = () => {
                 <RefreshCcw size={32} strokeWidth={1} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">II. Purposeful Processing</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4 font-medium">
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4 font-normal">
                 Data processed by Surge is used exclusively to stabilize the heartbeat of your business. This encompasses pathfinding for logistics, risk assessment for payments, and automated inventory balancing.
               </p>
             </div>
@@ -286,7 +286,7 @@ const PrivacyPage = () => {
                 <Lock size={32} strokeWidth={1} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">III. Vault Architecture</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed font-medium">
+              <p className="text-zinc-400 text-sm leading-relaxed font-normal">
                 We employ military-grade encryption for data-at-rest and TLS 1.3 for data-in-transit. Our infrastructure is compliant with regional African standards (NDPR) and international best practices (GDPR).
               </p>
             </div>
@@ -296,7 +296,7 @@ const PrivacyPage = () => {
                 <Eye size={32} strokeWidth={1} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-tighter">IV. Enterprise Rights</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed font-medium">
+              <p className="text-zinc-400 text-sm leading-relaxed font-normal">
                 You retain absolute ownership of your trade data. At any point, enterprises can request data portability, audit logs, or complete erasure of their operational footprint on the Surge protocol.
               </p>
             </div>
@@ -333,11 +333,11 @@ const AboutPage = () => {
       <div className="max-w-7xl mx-auto">
         {/* Expanded Vision Narrative */}
         <div className="max-w-5xl mx-auto mb-24 md:mb-40">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[9px] font-black uppercase tracking-[0.4em] mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[9px] font-bold uppercase tracking-[0.4em] mb-8">
             The Vision
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-8xl font-bold tracking-tighter mb-8 md:mb-12 leading-[1] md:leading-[0.9]">Unifying a <br/> Fragmented Continent.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-zinc-400 text-lg md:text-xl font-medium leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-zinc-400 text-lg md:text-xl font-normal leading-relaxed">
             <div className="space-y-6 md:space-y-8">
               <p>
                 Fragmentation is the silent tax on African prosperity. Today, a merchant in Lagos or Nairobi must manage three different platforms just to sell, receive money, and ship a single order. This operational overhead stifles the growth of small and medium enterprises.
@@ -364,10 +364,10 @@ const AboutPage = () => {
                 <Network size={28} />
              </div>
              <h3 className="text-2xl font-bold mb-4 text-white">Unified Logistics</h3>
-             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+             <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
                A decentralized delivery protocol that connects local carriers, warehouses, and fleet managers into a single, real-time routing engine. 
              </p>
-             <ul className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 space-y-3">
+             <ul className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 space-y-3">
                 <li className="flex items-center gap-2"><CheckCircle size={12} className="text-blue-500"/> Real-time Path Optimization</li>
                 <li className="flex items-center gap-2"><CheckCircle size={12} className="text-blue-500"/> Multi-modal Hub Integration</li>
              </ul>
@@ -377,10 +377,10 @@ const AboutPage = () => {
                 <Workflow size={28} />
              </div>
              <h3 className="text-2xl font-bold mb-4 text-white">Intelligent Commerce</h3>
-             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+             <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
                More than just a store — an adaptive commerce layer that predicts demand, manages multi-node inventory, and automates operations.
              </p>
-             <ul className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 space-y-3">
+             <ul className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 space-y-3">
                 <li className="flex items-center gap-2"><CheckCircle size={12} className="text-blue-500"/> Smart Inventory Triggers</li>
                 <li className="flex items-center gap-2"><CheckCircle size={12} className="text-blue-500"/> Cross-Channel Syncing</li>
              </ul>
@@ -390,10 +390,10 @@ const AboutPage = () => {
                 <CreditCard size={28} />
              </div>
              <h3 className="text-2xl font-bold mb-4 text-white">Frictionless Settlement</h3>
-             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+             <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
                Hardware-optimized payment flows designed for the speed of African street trade and high-volume digital marketplaces.
              </p>
-             <ul className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 space-y-3">
+             <ul className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 space-y-3">
                 <li className="flex items-center gap-2"><CheckCircle size={12} className="text-blue-500"/> Instant Edge Verification</li>
                 <li className="flex items-center gap-2"><CheckCircle size={12} className="text-blue-500"/> Tiered Routing Protocol</li>
              </ul>
@@ -405,9 +405,9 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
               <h2 className="text-4xl md:text-7xl font-bold mb-6 md:mb-8 leading-tight tracking-tight text-white">Recover <br/> Your Growth</h2>
-              <p className="text-zinc-400 text-lg md:text-xl mb-10 md:mb-12 font-medium leading-relaxed">Infrastructure fragmentation is a hidden tax. Every disconnected tool costs you 15-30% in potential scale.</p>
+              <p className="text-zinc-400 text-lg md:text-xl mb-10 md:mb-12 font-normal leading-relaxed text-balance">Infrastructure fragmentation is a hidden tax. Every disconnected tool costs you 15-30% in potential scale.</p>
               <div className="glass p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border-blue-500/10">
-                <label className="block text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 mb-8 md:mb-10">Monthly Transaction Volume (USD)</label>
+                <label className="block text-[10px] font-bold uppercase tracking-[0.4em] text-blue-500 mb-8 md:mb-10">Monthly Transaction Volume (USD)</label>
                 <input 
                   type="range" min="5000" max="1000000" step="5000" value={vol} 
                   onChange={(e) => setVol(parseInt(e.target.value))}
@@ -421,17 +421,17 @@ const AboutPage = () => {
               <div className="p-8 md:p-10 glass rounded-[2.5rem] md:rounded-[3rem] flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10 group border-l-4 border-l-blue-600">
                 <div className="p-4 bg-blue-500/10 rounded-2xl md:rounded-3xl text-blue-500"><Zap size={32} /></div>
                 <div>
-                  <span className="text-[9px] md:text-[10px] font-black text-blue-500 uppercase tracking-[0.4em]">Efficiency Gained</span>
+                  <span className="text-[9px] md:text-[10px] font-bold text-blue-500 uppercase tracking-[0.4em]">Efficiency Gained</span>
                   <h3 className="text-3xl md:text-5xl font-bold mt-1 md:mt-2 tracking-tight text-white">+${efficiency.toLocaleString()}</h3>
-                  <p className="text-zinc-500 text-[8px] md:text-[9px] mt-1 font-bold uppercase">Capital Recovered</p>
+                  <p className="text-zinc-500 text-[8px] md:text-[9px] mt-1 font-semibold uppercase">Capital Recovered</p>
                 </div>
               </div>
               <div className="p-8 md:p-10 glass rounded-[2.5rem] md:rounded-[3rem] flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10 group border-l-4 border-l-blue-400">
                 <div className="p-4 bg-blue-500/10 rounded-2xl md:rounded-3xl text-blue-400"><TrendingUp size={32} /></div>
                 <div>
-                  <span className="text-[9px] md:text-[10px] font-black text-blue-400 uppercase tracking-[0.4em]">Scaling Potential</span>
+                  <span className="text-[9px] md:text-[10px] font-bold text-blue-400 uppercase tracking-[0.4em]">Scaling Potential</span>
                   <h3 className="text-3xl md:text-5xl font-bold mt-1 md:mt-2 tracking-tight text-white">${scalingCap.toLocaleString()}</h3>
-                  <p className="text-zinc-500 text-[8px] md:text-[9px] mt-1 font-bold uppercase">Estimated Annual Impact</p>
+                  <p className="text-zinc-500 text-[8px] md:text-[9px] mt-1 font-semibold uppercase">Estimated Annual Impact</p>
                 </div>
               </div>
             </div>
@@ -441,7 +441,7 @@ const AboutPage = () => {
         {/* The Architects - Minimal Unboxed Layout */}
         <div className="border-t border-white/5 pt-24 md:pt-32 text-center mb-24 md:mb-48">
           <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-4">The Architects</h2>
-          <p className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-20 md:mb-32">Leadership</p>
+          <p className="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-20 md:mb-32">Leadership</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 max-w-6xl mx-auto">
             {architects.map((person, i) => (
               <div key={i} className="group relative text-left py-10 border-b border-white/5 hover:border-blue-500/40 transition-all duration-700">
@@ -454,15 +454,15 @@ const AboutPage = () => {
                       {person.name}
                     </h3>
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <p className="text-zinc-400 text-[10px] font-black uppercase tracking-[0.5em]">
+                      <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.5em]">
                         {person.role}
                       </p>
-                      <span className="text-zinc-600 font-black text-[10px] uppercase">@</span>
+                      <span className="text-zinc-700 font-bold text-[10px] uppercase">@</span>
                       <a 
                         href={person.companyLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-500/60 hover:text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] transition-colors flex items-center gap-1 group/link"
+                        className="text-blue-500/60 hover:text-blue-400 text-[10px] font-bold uppercase tracking-[0.4em] transition-colors flex items-center gap-1 group/link"
                       >
                         {person.company}
                         <ExternalLink size={10} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
@@ -478,7 +478,7 @@ const AboutPage = () => {
         {/* Founding Team - Unboxed List Layout */}
         <div className="border-t border-white/5 pt-24 md:pt-32 text-center pb-32">
           <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-4">Founding Team</h2>
-          <p className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-20 md:mb-32">Driving the Vision</p>
+          <p className="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-20 md:mb-32">Driving the Vision</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12 max-w-6xl mx-auto">
             {foundingTeam.map((member, i) => (
               <div key={i} className="group relative text-left border-l border-white/5 pl-8 hover:border-blue-500/40 transition-all duration-500">
@@ -491,16 +491,16 @@ const AboutPage = () => {
                 <div className="space-y-3">
                   <h3 className="text-xl font-bold text-white transition-all duration-500 group-hover:text-blue-400 leading-tight uppercase tracking-tighter">{member.name}</h3>
                   <div className="flex flex-col gap-1">
-                    <p className="text-zinc-400 text-[9px] font-black uppercase tracking-[0.2em]">
+                    <p className="text-zinc-500 text-[9px] font-semibold uppercase tracking-[0.2em]">
                       {member.role}
                     </p>
                     <div className="flex items-center gap-1">
-                       <span className="text-zinc-600 font-black text-[9px] uppercase">@</span>
+                       <span className="text-zinc-700 font-bold text-[9px] uppercase">@</span>
                        <a 
                         href={member.companyLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-500/40 hover:text-blue-400 text-[9px] font-black uppercase tracking-[0.2em] transition-colors inline-flex items-center gap-1 group/link"
+                        className="text-blue-500/40 hover:text-blue-400 text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors inline-flex items-center gap-1 group/link"
                       >
                         {member.company}
                         <ExternalLink size={8} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
@@ -523,9 +523,9 @@ const GrowthPage = () => {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-4xl mx-auto text-center pt-24 md:pt-32">
           <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-6">Partner with Surge</h2>
-          <p className="text-zinc-400 text-lg md:text-2xl mb-12 font-medium">Contribute to our pre-seed mission and help us build the future of African commerce.</p>
+          <p className="text-zinc-400 text-lg md:text-2xl mb-12 font-normal">Contribute to our pre-seed mission and help us build the future of African commerce.</p>
           
-          <div className="mb-10 text-zinc-400 text-[10px] font-black uppercase tracking-[0.4em]">Direct Correspondence</div>
+          <div className="mb-10 text-zinc-500 text-[10px] font-bold uppercase tracking-[0.4em]">Direct Correspondence</div>
           
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
             <a href="mailto:toluwanimiajiboso03@gmail.com" className="p-6 md:p-8 glass rounded-2xl md:rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all group shadow-xl" title="Email Founder">
@@ -602,7 +602,7 @@ const WaitlistPage = () => {
         {status !== 'success' ? (
           <>
             <h2 className="text-5xl sm:text-7xl md:text-[10rem] font-bold mb-10 md:mb-12 tracking-tighter leading-[1] md:leading-[0.85] text-balance">The Surge <br/><span className="gradient-text">Protocol</span></h2>
-            <p className="text-zinc-400 text-lg md:text-2xl mb-12 md:mb-16 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-zinc-400 text-lg md:text-2xl mb-12 md:mb-16 max-w-3xl mx-auto font-normal leading-relaxed text-balance">
               Register your interest for the initial private release. Early partners receive tiered routing discounts and priority API access.
             </p>
             <form onSubmit={handleSubmit} className={`relative flex flex-col md:flex-row gap-4 md:gap-6 max-w-2xl mx-auto p-2 glass rounded-2xl md:rounded-full border-white/10 transition-all duration-500 ${status === 'error' ? 'border-red-500/40' : ''}`}>
@@ -619,7 +619,7 @@ const WaitlistPage = () => {
               <button 
                 type="submit" 
                 disabled={status === 'loading'}
-                className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-black text-[10px] uppercase tracking-[0.4em] px-12 py-5 md:py-6 rounded-full transition-all active:scale-95 shadow-xl shadow-blue-600/30 whitespace-nowrap group flex items-center justify-center gap-3 min-w-[200px]"
+                className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold text-[10px] uppercase tracking-[0.4em] px-12 py-5 md:py-6 rounded-full transition-all active:scale-95 shadow-xl shadow-blue-600/30 whitespace-nowrap group flex items-center justify-center gap-3 min-w-[200px]"
               >
                 {status === 'loading' ? (
                   <>
@@ -636,17 +636,17 @@ const WaitlistPage = () => {
             {/* Logic Helper for User */}
             {isSimulation && status !== 'loading' && (
               <div className="mt-8 flex flex-col items-center gap-4 animate-in fade-in duration-1000">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400/80 text-[8px] font-black uppercase tracking-widest">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400/80 text-[8px] font-bold uppercase tracking-widest">
                   <Info size={10} /> Simulation Active
                 </div>
-                <p className="text-zinc-600 text-[9px] font-medium max-w-sm uppercase tracking-wider">
+                <p className="text-zinc-600 text-[9px] font-semibold max-w-sm uppercase tracking-wider">
                   Open console (F12) to verify. Paste your Formspree ID into <code className="text-blue-400">WAITLIST_ENDPOINT</code> to receive real emails.
                 </p>
               </div>
             )}
 
             {status === 'error' && (
-              <p className="text-red-400 text-[10px] font-black uppercase tracking-widest mt-6 animate-pulse flex items-center justify-center gap-2">
+              <p className="text-red-400 text-[10px] font-bold uppercase tracking-widest mt-6 animate-pulse flex items-center justify-center gap-2">
                 <AlertCircle size={12} /> Sync Error. Check Connection.
               </p>
             )}
@@ -657,7 +657,7 @@ const WaitlistPage = () => {
               <CheckCircle className="w-10 h-10 md:w-14 md:h-14" strokeWidth={1.5} />
             </div>
             <h2 className="text-4xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tighter">Node Registered</h2>
-            <p className="text-zinc-400 text-lg md:text-2xl mb-12 font-medium max-w-2xl mx-auto leading-relaxed">
+            <p className="text-zinc-400 text-lg md:text-2xl mb-12 font-normal max-w-2xl mx-auto leading-relaxed">
               Handshake complete for <span className="text-white font-bold">{email}</span>. 
               {isSimulation 
                 ? " (Simulation Successful: Check browser console)." 
@@ -687,24 +687,24 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-16 mb-20 md:mb-24">
           <div className="max-w-md mx-auto md:mx-0">
             <span className="text-3xl font-surge text-white mb-6 md:mb-8 block">SURGE</span>
-            <p className="text-zinc-400 text-lg font-medium leading-relaxed mb-8 md:mb-10">
+            <p className="text-zinc-400 text-lg font-normal leading-relaxed mb-8 md:mb-10">
               The unified commerce foundation for the African future. Consolidating logistics, payments, and trade into one heartbeat.
             </p>
             <div className="flex justify-center md:justify-start gap-8">
-              <a href="https://linkedin.com/company/marvexco" target="_blank" rel="noopener noreferrer" className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-blue-500 transition-colors">LinkedIn</a>
+              <a href="https://linkedin.com/company/marvexco" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 hover:text-blue-500 transition-colors">LinkedIn</a>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-10 md:gap-16 w-full md:w-auto">
             <div>
               <h4 className="text-blue-500 font-bold mb-6 md:mb-8 text-[10px] uppercase tracking-[0.4em]">Protocol</h4>
-              <ul className="space-y-4 text-sm text-zinc-400 font-medium">
+              <ul className="space-y-4 text-sm text-zinc-400 font-normal">
                 <li><button onClick={() => { setPage('about'); window.scrollTo(0, 0); }} className="hover:text-blue-500 transition-colors">About</button></li>
                 <li><button onClick={() => { setPage('growth'); window.scrollTo(0, 0); }} className="hover:text-blue-500 transition-colors">Growth</button></li>
               </ul>
             </div>
             <div>
               <h4 className="text-blue-500 font-bold mb-6 md:mb-8 text-[10px] uppercase tracking-[0.4em]">Foundation</h4>
-              <ul className="space-y-4 text-sm text-zinc-400 font-medium">
+              <ul className="space-y-4 text-sm text-zinc-400 font-normal">
                 <li><button onClick={() => { setPage('privacy'); window.scrollTo(0, 0); }} className="hover:text-blue-500 transition-colors">Privacy</button></li>
                 <li><button onClick={handleContactClick} className="hover:text-blue-500 transition-colors">Contact</button></li>
                 <li><button className="hover:text-blue-500 transition-colors">Terms</button></li>
@@ -712,7 +712,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => {
             </div>
           </div>
         </div>
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] md:text-[10px] font-black text-white/20 tracking-[0.4em] uppercase">
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] md:text-[10px] font-bold text-white/20 tracking-[0.4em] uppercase">
           <p className="text-center md:text-left">© 2024 Surge • Built for the Pan-African Future.</p>
         </div>
       </div>
