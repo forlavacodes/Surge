@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Surge | The Heartbeat of African Commerce</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,43 +90,4 @@
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
         border: 1px solid rgba(255, 255, 255, 0.04);
-        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.5);
-      }
-
-      .text-balance {
-        text-wrap: balance;
-      }
-
-      .bg-noise {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        opacity: 0.03;
-        pointer-events: none;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      }
-    </style>
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react/": "https://esm.sh/react@18.2.0/",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/"
-  }
-}
-</script>
-  </head>
-  <body>
-    <div class="bg-mesh"></div>
-    <div class="bg-noise"></div>
-    <div class="bg-pattern"></div>
-    <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
-  </body>
-</html>
+        box-shadow

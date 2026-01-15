@@ -212,7 +212,7 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
     <div className="relative z-10 flex flex-col items-center max-w-7xl mx-auto">
       <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 animate-in fade-in duration-700">
         <Zap className="w-3.5 h-3.5" />
-        <span className="hidden xs:inline">The New Standard of</span> African Enterprise
+        <span className="hidden xs:inline">The New Standard of</span> Empowering Africa
       </div>
       <h1 className="text-4xl sm:text-7xl md:text-9xl font-bold tracking-tighter leading-[0.95] md:leading-[0.9] mb-10 md:mb-12 max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
         The <span className="gradient-text">Unified Heartbeat</span> <br className="hidden md:block"/> of African Trade
